@@ -1,9 +1,23 @@
 // index.js
 Page({
     data:{
-        message:"你好啊，李银河"
+        message:"你好啊，李银河",
+        movies:[
+            "大话西游",
+            "少年派",
+            "红与黑"
+        ],
+        counter:0
     },
     changeMessage(){
         this.setData({message:"hhahaha"})
-    }
+    },
+    increment(){
+        this.setData({counter:this.data.counter+1})
+    },
+    decrement(){
+        this.setData({
+            counter:this.data.counter-1
+        })
+    }    
 })

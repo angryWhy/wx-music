@@ -4,3 +4,15 @@
    message
  }}
 </view>
+<!-- *this默认指向item -->
+<block wx:for="{{movies}}" wx:key="*this">
+{{
+  item
+}}
+</block>
+<block>
+{{counter}}
+<button size="mini" bind:tap="increment">+1</button>
+<button size="mini" bind:tap="decrement">-1</button>
+</block>
+
