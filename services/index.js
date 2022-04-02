@@ -1,7 +1,9 @@
 const BASE_URL = "http://123.207.32.32:9001"
 class WzRequest {
+   
     request (url,method,param){
         return new Promise((resolve,reject)=>{
+          wx.showNavigationBarLoading()
           wx.request({
           url: BASE_URL+url,
           method:method,

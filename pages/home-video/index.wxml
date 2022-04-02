@@ -2,6 +2,9 @@
 
 <view class="video">
   <view wx:for="{{topMv}}" wx:key="id" class="item">
-   <video-item item="{{item}}"></video-item>
+   <video-item item="{{item}}" 
+               bindtap="handleVidoeItemClick"
+               data-item="{{item}}"
+   />
   </view>
 </view>
