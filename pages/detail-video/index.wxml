@@ -1,2 +1,5 @@
 <!--pages/detail-video/index.wxml-->
-<text>pages/detail-video/index.wxml</text>
+<video src="{{url}}" class="video" autoplay loop></video>
+<view wx:for="{{100}}" wx:key="*this">
+</view>
+

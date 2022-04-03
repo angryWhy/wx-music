@@ -1,2 +1,6 @@
 <!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
+<van-search shape="round" 
+            disabled 
+            bind:click-input="handleSearch"
+            placeholder="请输入搜索内容"
+            />

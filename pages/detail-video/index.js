@@ -1,3 +1,5 @@
+import wzxRequest from "../../services/index"
+
 // pages/detail-video/index.js
 Page({
 
@@ -5,14 +7,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        url:""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        console.log(options);
+    onLoad:function (options) {
+        const id = options.id
+        wzxRequest.get("/mv/url",{id}).then(res=>{
+            this.setData({url:res.data.data.url})
+        })
+        wzxRequest.get("/mv/detail",{mvid:id}).then(res=>{
+            console.log(res.data.data);
+            this.setData({mvDetail:res.data.data})
+        })
+        wzxRequest.get("/related/allvideo",{id}).then(res=>{
+            console.log(res.data.data);
+            this.setData({relatedVideo:res.data.data})
+        })
     },
 
     /**

@@ -1,4 +1,5 @@
 {
+    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -13,7 +14,7 @@
             "list": [
                 {
                     "name": "home-video",
-                    "pathName": "pages/home-video/index",
+                    "pathName": "pages/home-music/index",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"
