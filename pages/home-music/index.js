@@ -1,5 +1,11 @@
 import wzxRequest from "../../services/index"
-
+import {
+  debounce
+} from "../../utils/debounce"
+import {
+  queryRect
+} from "../../utils/queryRect"
+const thr = debounce(queryRect,2000)
 // pages/home-music/index.js
 Page({
 
@@ -7,7 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    height: 0
   },
   handleSearch() {
     wx.navigateTo({
@@ -15,13 +21,11 @@ Page({
     })
   },
   handleImageLoading() {
-    console.log("图片加载完成");
-    const query = wx.createSelectorQuery()
-    query.select(".swiper-image").boundingClientRect()
-    query.exec( (res) =>{
-      const re = res[0]
-      this.setData({height:re.height})
-    })
+     queryRect(".swiper-image").then(res=>{
+       const rect = res[0]
+       console.log(111);
+       this.setData({height:rect.height})
+     })
   },
   /** 
    * 生命周期函数--监听页面加 
