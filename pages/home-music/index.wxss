@@ -2,3 +2,9 @@
 .van-search__content{
     background-color: aqua;
 }
+.swiper-item{
+
+}
+.swiper-image{
+    width: 100%;
+}

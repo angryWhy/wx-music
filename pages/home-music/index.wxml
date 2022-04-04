@@ -1,6 +1,14 @@
 <!--pages/home-music/index.wxml-->
-<van-search shape="round" 
-            disabled 
-            bind:click-input="handleSearch"
-            placeholder="请输入搜索内容"
-            />
+<van-search shape="round" disabled bind:click-input="handleSearch" placeholder="请输入搜索内容" />
+<!-- 轮播图 -->
+<swiper indicator-dots autoplay circular class="swiper" style="height:{{height}}px">
+    <block wx:for="{{banners}}" wx:key="*this">
+        <swiper-item class="swiper-item">
+            <image src="{{item.pic}}" 
+                   class="swiper-image" 
+                   mode="widthFix"
+                   bindload="handleImageLoading"
+                    />
+        </swiper-item>
+    </block>
+</swiper>
