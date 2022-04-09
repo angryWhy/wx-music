@@ -1,4 +1,5 @@
 import wzxRequest from "../../services/index"
+import rankingStore from "../../store/ranking-store"
 import {
   debounce
 } from "../../utils/debounce"
@@ -31,6 +32,16 @@ Page({
    * 生命周期函数--监听页面加 
    */
   onLoad: function (options) {
+    rankingStore.dispatch("getRankingataAction")
+    rankingStore.onState("hotRanking",(res)=>{
+      if(!res.tracks) return
+      const recommend = res.tracks.slice(0,6)
+      console.log(recommend);
+
+    })  
+
+
+
     wzxRequest.get("/banner", {
       type: 2
     }).then(

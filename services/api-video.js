@@ -14,3 +14,8 @@ export function getRelatedVideo(id){
         id
     })
 }
+export function getRankingData(idx){
+    return wzRequest.get("/top/list",{
+        idx
+    })
+}

@@ -1,5 +1,5 @@
 <!--pages/detail-video/index.wxml-->
-<video src="{{url}}" class="video" autoplay loop></video>
+<video src="{{url}}" class="video" autoplay loop referrer-policy="origin"></video>
 <view wx:for="{{100}}" wx:key="*this">
 </view>
 
