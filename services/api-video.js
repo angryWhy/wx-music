@@ -1,3 +1,4 @@
+import wzxRequest from "./index"
 import wzRequest from "./index"
 export function getMvUrl(id){
     return wzRequest.get("mv/url",{
@@ -17,5 +18,12 @@ export function getRelatedVideo(id){
 export function getRankingData(idx){
     return wzRequest.get("/top/list",{
         idx
+    })
+}
+export function getSongMenu(cat="全部",limit = 6,offset=0){
+    return wzxRequest.get("/top/playlist",{
+        cat,
+        limit,
+        offset
     })
 }

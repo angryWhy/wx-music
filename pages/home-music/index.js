@@ -1,12 +1,15 @@
 import wzxRequest from "../../services/index"
 import rankingStore from "../../store/ranking-store"
 import {
+  getSongMenu
+} from "../../services/api-video"
+import {
   debounce
 } from "../../utils/debounce"
 import {
   queryRect
 } from "../../utils/queryRect"
-const thr = debounce(queryRect,2000)
+const thr = debounce(queryRect, 2000)
 // pages/home-music/index.js
 Page({
 
@@ -14,7 +17,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height: 0
+    height: 0,
+    recommend: [],
+    songMenu: [],
+    songMenuRecommend: [],
+    ranking: [{0:{},2:{},3:{}}]
+  },
+  handleRanking(idx) {
+    return (res) => {
+      const name = res.name
+      const coverImgUrl = res.coverImgUrl
+      const playCount = res.playCount
+      const songlist = res.tracks?.slice(0, 3)
+      const rankingObj = {
+        name,
+        coverImgUrl,
+        songlist
+      }
+      const newRankings = {...this.data.ranking,[idx]:rankingObj}
+      this.setData({
+        ranking: newRankings
+      })
+    }
   },
   handleSearch() {
     wx.navigateTo({
@@ -22,37 +46,70 @@ Page({
     })
   },
   handleImageLoading() {
-     queryRect(".swiper-image").then(res=>{
-       const rect = res[0]
-       console.log(111);
-       this.setData({height:rect.height})
-     })
+    queryRect(".swiper-image").then(res => {
+      const rect = res[0]
+      this.setData({
+        height: rect.height
+      })
+    })
   },
   /** 
    * 生命周期函数--监听页面加 
    */
   onLoad: function (options) {
     rankingStore.dispatch("getRankingataAction")
-    rankingStore.onState("hotRanking",(res)=>{
-      if(!res.tracks) return
-      const recommend = res.tracks.slice(0,6)
-      console.log(recommend);
-
-    })  
+    rankingStore.onState("hotRanking", (res) => {
 
 
+      if (!res.tracks) return
+      const recommend = res.tracks.slice(0, 6)
+      this.setData({
+        recommend: recommend
+      })
+    })
+    // rankingStore.onState("newRanking", res => {
+    //   const name = res.name
+    //   const coverImgUrl = res.coverImgUrl
+    //   const songlist = res.tracks?.slice(0, 3)
+    //   const rankingObj = {
+    //     name,
+    //     coverImgUrl,
+    //     songlist
+    //   }
+    //   const newRankings = [...this.data.ranking]
+    //   newRankings.push(rankingObj)
+    //   this.setData({
+    //     ranking: newRankings
+    //   })
+    // })
+    rankingStore.onState("newRanking", this.handleRanking(0))
+    rankingStore.onState("originRanking", this.handleRanking(2))
+    rankingStore.onState("upRanking", this.handleRanking(3))
 
     wzxRequest.get("/banner", {
       type: 2
     }).then(
       res => {
-        console.log(res.data.banners);
         this.setData({
           banners: res.data.banners
         })
       }
     )
+    getSongMenu().then(res => {
+      this.setData({
+        songMenu: res.data.playlists
+      })
+    })
+    getSongMenu("华语").then(
+      res => {
+        this.setData({
+          songMenuRecommend: res.data.playlists
+        })
+      }
+    )
+
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -102,4 +159,5 @@ Page({
   onShareAppMessage: function () {
 
   }
+
 })
