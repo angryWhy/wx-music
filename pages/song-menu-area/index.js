@@ -21,11 +21,17 @@ Component({
     data: {
         screenWidth:app.globalData.screenWidth
     },
+   
 
     /**
      * 组件的方法列表
      */
     methods: {
-
+        handleMenuClick(event){
+            const item = event.currentTarget.dataset.item
+            wx.navigateTo({
+              url: `/pages/details-songs/index?id=${item.id}&type=menu`,
+            })
+        },
     }
 })

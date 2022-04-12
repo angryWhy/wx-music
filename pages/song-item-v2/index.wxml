@@ -1,0 +1,15 @@
+<!--pages/song-item-v2/index.wxml-->
+<view class="item">
+    <view class="index">
+        {{index}}
+    </view>
+    <view class="info">
+    <view class="name">{{item.name}}</view>
+    <view class="source">
+    <image class="icon" src="/assets/images/icons/sq_icon.png" ></image>
+    <text>{{item.arr[0].name}} *
+    <text wx:if=" {{item.alia[0]}}"> {{item.alia[0]}}</text>
+    </text>
+    </view>
+    </view>
+</view>

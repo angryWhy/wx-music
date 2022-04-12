@@ -1,5 +1,5 @@
 import wzxRequest from "../../services/index"
-import rankingStore from "../../store/ranking-store"
+import {rankingStore,rankingMap} from "../../store/ranking-store"
 import {
   getSongMenu
 } from "../../services/api-video"
@@ -21,10 +21,11 @@ Page({
     recommend: [],
     songMenu: [],
     songMenuRecommend: [],
-    ranking: [{0:{},2:{},3:{}}]
+    ranking: {0:{},2:{},3:{}}
   },
   handleRanking(idx) {
     return (res) => {
+      console.log(res);
       const name = res.name
       const coverImgUrl = res.coverImgUrl
       const playCount = res.playCount
@@ -40,6 +41,20 @@ Page({
       })
     }
   },
+  handlemoreclick(){
+   this.navigateToDetailSong("hotRanking")
+  },
+  handleRankingItemClick(e){
+    console.log(e.currentTarget.dataset.idx);
+    const idx = e.currentTarget.dataset.idx
+    const rankingname = rankingMap[idx]
+    this.navigateToDetailSong(rankingname)
+  },
+  navigateToDetailSong(rankingname){
+    wx.navigateTo({
+      url: `../details-songs/index?ranking=${rankingname}&type=menu`,
+    })
+  },
   handleSearch() {
     wx.navigateTo({
       url: '/pages/detail-search/index',
@@ -53,6 +68,7 @@ Page({
       })
     })
   },
+ 
   /** 
    * 生命周期函数--监听页面加 
    */

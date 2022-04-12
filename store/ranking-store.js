@@ -4,6 +4,7 @@ import {
 import {
     getRankingData
 } from "../services/api-video"
+const rankingMap = {0:"newRanking",1:"hotRanking",2:"originRanking",3:"upRanking"}
 const rankingStore = new HYEventStore({
     state: {
         hotRanking: {},
@@ -29,7 +30,6 @@ const rankingStore = new HYEventStore({
                             case 3:
                                 ctx.upRanking = res.data.playlist
                                 break;
-
                         }
                     }
                 )
@@ -37,4 +37,4 @@ const rankingStore = new HYEventStore({
         }
     }
 })
-export default rankingStore
+export {rankingStore,rankingMap}

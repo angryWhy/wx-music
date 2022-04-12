@@ -27,3 +27,8 @@ export function getSongMenu(cat="全部",limit = 6,offset=0){
         offset
     })
 }
+export function getSongDetail(id) {
+    return wzxRequest.get("/playlist/detail/dynamic",{
+        id
+    })
+}
