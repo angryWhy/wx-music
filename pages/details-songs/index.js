@@ -21,6 +21,7 @@ Page({
         if(type === "menu"){
             const id = options.id
             getSongDetail(id).then(res=>{
+                console.log("menu数据",res.data.playlist);
                 this.setData({menuInfo:res.data.playlist})
             })
         }else if (type === "rank"){

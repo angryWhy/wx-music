@@ -2,3 +2,9 @@
 page{
     background-color: #fafafa;
 }
+.van-search__content{
+    background-color: aqua;
+}
+.vant-search{
+    padding: 10px 0 !important;
+}
