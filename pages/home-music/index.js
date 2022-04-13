@@ -52,7 +52,7 @@ Page({
   },
   navigateToDetailSong(rankingname){
     wx.navigateTo({
-      url: `../details-songs/index?ranking=${rankingname}&type=menu`,
+      url: `../details-songs/index?ranking=${rankingname}&type=rank`,
     })
   },
   handleSearch() {

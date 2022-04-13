@@ -7,7 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        type:"",
+        menuInfo:{}
     },
 
     /**
@@ -15,14 +16,15 @@ Page({
      */
     onLoad: function (options) {
         const type = options.type
+        console.log(type);
+        this.setData({type})
         if(type === "menu"){
             const id = options.id
             getSongDetail(id).then(res=>{
-                console.log(res);
+                this.setData({menuInfo:res.data.playlist})
             })
         }else if (type === "rank"){
             const rankingName = options.ranking
-            this.setData({ranking})
             rankingStore.onState(rankingName,this.getRankingHandler)
         }
         
