@@ -1,5 +1,5 @@
 <!--pages/song-item-v1/index.wxml-->
-<view class="item">
+<view class="item" data-id="{{item.id}}" bindtap="handleItemClick">
     <image src="{{item.al.picUrl}}" class="image"></image>
     <view class="content">
         <view class="name">{{item.name}}</view>
