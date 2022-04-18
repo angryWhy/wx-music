@@ -68,6 +68,15 @@ Page({
       })
     })
   },
+  // export function queryRect(selector) {
+  //   return new Promise((resolve) => {
+  //           const query = wx.createSelectorQuery()
+  //           query.select(selector).boundingClientRect()
+  //           query.exec((res) => {
+  //               resolve(res)
+  //           })
+  //       })
+  //   }
  
   /** 
    * 生命周期函数--监听页面加 
