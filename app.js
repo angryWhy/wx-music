@@ -5,6 +5,7 @@ App({
          success: (result) => {
             this.globalData.screenWidth = result.screenWidth
             this.globalData.screenHeight = result.screenHeight
+            this.globalData.statusBarHeight = result.statusBarHeight
          },
        })  
     },

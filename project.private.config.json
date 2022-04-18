@@ -16,6 +16,13 @@
                     "name": "home-video",
                     "pathName": "pages/home-music/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/music-player/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

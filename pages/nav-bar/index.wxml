@@ -1,0 +1,9 @@
+<!--pages/nav-bar/index.wxml-->
+<view class="nav">
+    <view class="status" style="height:{{statusBarHeight}}px;"></view>
+    <view class="nav-bar">
+    <view class="left">左边</view>
+    <view class="center">中间</view>
+    <view class="right">右边</view>
+    </view>
+</view>

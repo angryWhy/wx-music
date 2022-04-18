@@ -1,0 +1,4 @@
+/* pages/nav-bar/index.wxss */
+.status{
+    background-color: rgb(17, 231, 28); 
+} 
