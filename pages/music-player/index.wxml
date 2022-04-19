@@ -1,5 +1,5 @@
 
 <image class="bg-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
 <view class="bg-cover"></view>
-<nav-bar>111111s11</nav-bar>
+<nav-bar></nav-bar>
   

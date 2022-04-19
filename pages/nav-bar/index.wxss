@@ -1,4 +1,40 @@
-/* pages/nav-bar/index.wxss */
-.status{
-    background-color: rgb(17, 231, 28); 
-} 
+.nav-bar {
+    display: flex;
+    text-align: center;
+  }
+  
+  .left, .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120rpx;
+  }
+  
+  .left-arrow {
+    display: none;
+  }
+  
+  .left-slot:empty + .left-arrow {
+    display: block  !important;
+  }
+  
+  .center-title {
+    display: none;
+  }
+  
+  .center-slot:empty + .center-title {
+    display: block;
+  }
+  
+  .left .left-arrow .icon {
+    width: 44rpx;
+    display: block;
+  }
+  
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  
