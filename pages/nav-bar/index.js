@@ -16,8 +16,9 @@ Component({
     /**
      * 组件的初始数据
      */
-    data: {
-        statusBarHeight :getApp().globalData.statusBarHeight
+    data: { 
+        statusBarHeight :getApp().globalData.statusBarHeight,
+        navBarHeight :getApp().globalData.navBarHeight
     },
 
     /**

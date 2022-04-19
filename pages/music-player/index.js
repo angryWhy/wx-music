@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        currentSong:[]
+        currentSong:[],
+        currentPage:0
     },
 
     /**
@@ -15,6 +16,11 @@ Page({
         const id = options.id
         this.setData({id})
         this.getPageData(id)
+        console.log(getApp().globalData);
+        const screenHeight = getApp().globalData.screenHeight
+        const statusBarHeight = getApp().globalData.statusBarHeight
+        const navBarHeight = getApp().globalData.navBarheight
+        const conetntHeight = screenHeight - statusBarHeight - navBarHeight
     },
     getPageData(id){
         getSongDetail(id).then(
@@ -22,6 +28,10 @@ Page({
                 this.setData({currentSong:res.data.songs[0]})
             }
         )
+    },
+    handleSwiperChange(event){
+        const current = event.detail.current
+        this.setData({currentPage:current})
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

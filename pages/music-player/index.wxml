@@ -1,5 +1,20 @@
-
 <image class="bg-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
 <view class="bg-cover"></view>
-<nav-bar></nav-bar>
-  
+<nav-bar>
+    <view slot="title" class="tab">
+        <view class="{{currentPage ===0?'active':''}}">歌曲</view>
+        <view> | </view>
+        <view class="{{currentPage ===1?'active':''}}">歌词</view>
+    </view>
+</nav-bar>
+<swiper class="content" 
+        style="height: {{contentHeight}};"
+        bindchange="handleSwiperChange"
+        >
+    <swiper-item>
+    1
+    </swiper-item>
+    <swiper-item>
+    2
+    </swiper-item>
+</swiper>  

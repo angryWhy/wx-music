@@ -11,3 +11,14 @@
     background-color: rgba(0, 0,0,.5);
     backdrop-filter: blur(30px); 
 } 
+.tab {
+    display: flex;
+    font-size: 28rpx;
+    color: rgb(255, 250, 250);
+}
+.divider{
+    margin: 0 1rpx;
+}
+.tab .active{
+    color: rgb(12, 223, 75);
+}
