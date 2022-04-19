@@ -1,5 +1,3 @@
-<image class="bg-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
-<view class="bg-cover"></view>
 <nav-bar>
     <view slot="title" class="tab">
         <view class="{{currentPage ===0?'active':''}}">歌曲</view>
@@ -7,14 +5,37 @@
         <view class="{{currentPage ===1?'active':''}}">歌词</view>
     </view>
 </nav-bar>
-<swiper class="content" 
-        style="height: {{contentHeight}};"
-        bindchange="handleSwiperChange"
-        >
-    <swiper-item>
-    1
+<image class="bg-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
+
+<view class="bg-cover"></view>
+
+<swiper class="content" style="height: {{conetntHeight}}px;" bindchange="handleSwiperChange">
+    <swiper-item class="music">
+        <view class="album">
+            <image mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
+        </view>
+        <view class="info">
+            <view class="title">{{currentSong.name}}</view>
+            <view class="subtitle">
+                <view class="singer">{{currentSong.ar[0].name}}</view>
+                <view class="alias">专辑:{{currentSong.alia[0]}}</view>
+            </view>
+        </view>
+        <view class="lyric">我是歌词，哈哈哈</view>
+        <view class="progress">
+            <slider class="slider" block-size="12"></slider>
+            <view class="time">0:1</view>
+            <view class="duration">8:10</view>
+        </view>
+        <view class="operation">
+            <image class="btn btn-mode" src="../../assets/images/player/play_order.png"></image>
+            <image class="btn btn-prev" src="../../assets/images/player/play_prev.png"></image>
+            <image class="btn btn-pause" src="../../assets/images/player/play_pause.png"></image>
+            <image class="btn btn-next" src="../../assets/images/player/play_next.png"></image>
+            <image class="btn btn-music" src="../../assets/images/player/play_music.png"></image>
+        </view>
     </swiper-item>
     <swiper-item>
-    2
+        2
     </swiper-item>
-</swiper>  
+</swiper>
